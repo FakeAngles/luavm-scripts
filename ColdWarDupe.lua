@@ -1,3 +1,4 @@
+_G.tween_speed = 200000
 local player = Players.LocalPlayer
 local character = player.Character
 if not character then return end
@@ -48,7 +49,7 @@ local targetPosition = originalPosition + Vector3.new(0, 770000, 0)
 local safeLandingPosition = originalPosition + Vector3.new(0, 2, 0)
 
 notify("Teleporting up 770k", "Teleport", 1)
-tween_position(rootPart, targetPosition, 1)
+tween_position(rootPart, targetPosition, 770000 / _G.tween_speed)
 
 notify("Holding 5 seconds", "Teleport", 1)
 freeze_in_air(5)
@@ -56,7 +57,7 @@ freeze_in_air(5)
 if humanoid then humanoid.PlatformStand = false end
 
 notify("Returning", "Teleport", 1)
-tween_position(rootPart, safeLandingPosition, 1)
+tween_position(rootPart, safeLandingPosition, 770000 / _G.tween_speed)
 
 task.wait(0.1)
 rootPart.Velocity = Vector3.new(0, -2, 0)
